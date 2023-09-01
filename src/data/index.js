@@ -1,0 +1,51 @@
+export const employeeSeedData = [
+  {
+    id: 1,
+    name: 'shahriar',
+    age: 25,
+    position: 'software engineer',
+    department: 'engineering',
+  },
+  {
+    id: 2,
+    name: 'kabir',
+    age: 28,
+    position: 'software developer',
+    department: 'engineering',
+  },
+  {
+    id: 3,
+    name: 'ronaldo',
+    age: 38,
+    position: 'graphic designer',
+    department: 'design',
+  },
+  {
+    id: 4,
+    name: 'lake',
+    age: 27,
+    position: 'software test engineer',
+    department: 'engineering',
+  },
+  {
+    id: 5,
+    name: 'bob',
+    age: 36,
+    position: 'ui designer',
+    department: 'design',
+  },
+  {
+    id: 6,
+    name: 'jack',
+    age: 30,
+    position: 'AI engineer',
+    department: 'engineering',
+  },
+  {
+    id: 7,
+    name: 'lily',
+    age: 25,
+    position: 'software engineer',
+    department: 'engineering',
+  },
+];
