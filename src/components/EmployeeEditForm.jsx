@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Paper, Box, Typography, TextField, Button } from "@mui/material";
 
 
-export const EmployeeEditForm = ({ employee,onSave }) => {
-
+export const EmployeeEditForm = ({ employee, onSave,  setShowEditForm }) => {
   const [editedEmployee, setEditedEmployee] = useState(employee);
+  const [isFormOpen, setIsFormOpen] = useState(true);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -16,13 +16,11 @@ export const EmployeeEditForm = ({ employee,onSave }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-      editedEmployee.id = employee.id;
-      onSave(editedEmployee);
+    
+    editedEmployee.id = employee.id;
+    onSave(editedEmployee);
     console.log("Edited Employee:", editedEmployee);
-
-
-    
-    
+   setShowEditForm(false);
   };
 
   return (
@@ -76,6 +74,7 @@ export const EmployeeEditForm = ({ employee,onSave }) => {
             variant="contained"
             color="primary"
             sx={{ marginTop: 2 }}
+            
           >
             Save Changes
           </Button>

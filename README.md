@@ -17,9 +17,9 @@ Follow these steps to get a local copy of the project and install the necessary 
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/employee-management-app.git
+   git clone https://github.com/shahriar021/employee-management-app.git
 
-Replace your-username with your GitHub username or the URL of your forked repository if you've forked it.
+
 
 ### Navigate to the project directory:
 
