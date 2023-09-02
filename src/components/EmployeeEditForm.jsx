@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Paper, Box, Typography, TextField, Button } from "@mui/material";
 
-
-export const EmployeeEditForm = ({ employee, onSave,  setShowEditForm }) => {
+export const EmployeeEditForm = ({ employee, onSave }) => {
   const [editedEmployee, setEditedEmployee] = useState(employee);
   const [isFormOpen, setIsFormOpen] = useState(true);
+  const [showEditForm, setShowEditForm] = useState(false);
+  const [showForm, setShowForm] = useState(true);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -16,11 +17,11 @@ export const EmployeeEditForm = ({ employee, onSave,  setShowEditForm }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     editedEmployee.id = employee.id;
     onSave(editedEmployee);
     console.log("Edited Employee:", editedEmployee);
-   setShowEditForm(false);
+    setShowForm(false);
   };
 
   return (
@@ -35,50 +36,53 @@ export const EmployeeEditForm = ({ employee, onSave,  setShowEditForm }) => {
         <Typography variant="h6" gutterBottom>
           Edit Employee Information
         </Typography>
-        <form onSubmit={handleSubmit}>
-          <TextField
-            fullWidth
-            label={employee.name}
-            name="name"
-            value={editedEmployee.firstName}
-            onChange={handleInputChange}
-            margin="normal"
-          />
-          <TextField
-            fullWidth
-            label={employee.age}
-            name="age"
-            value={editedEmployee.age}
-            onChange={handleInputChange}
-            margin="normal"
-          />
-          <TextField
-            fullWidth
-            label={employee.position}
-            name="position"
-            value={editedEmployee.positon}
-            onChange={handleInputChange}
-            margin="normal"
-          />
-          <TextField
-            fullWidth
-            label={employee.department}
-            name="department"
-            value={editedEmployee.department}
-            onChange={handleInputChange}
-            margin="normal"
-          />
-          {/* Add more fields for other employee information as needed */}
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            sx={{ marginTop: 2 }}
-            
-          >
-            Save Changes
-          </Button>
-        </form>
+        {showForm ? (
+          <form onSubmit={handleSubmit}>
+            <TextField
+              fullWidth
+              label={employee.name}
+              name="name"
+              value={editedEmployee.firstName}
+              onChange={handleInputChange}
+              margin="normal"
+            />
+            <TextField
+              fullWidth
+              label={employee.age}
+              name="age"
+              value={editedEmployee.age}
+              onChange={handleInputChange}
+              margin="normal"
+            />
+            <TextField
+              fullWidth
+              label={employee.position}
+              name="position"
+              value={editedEmployee.positon}
+              onChange={handleInputChange}
+              margin="normal"
+            />
+            <TextField
+              fullWidth
+              label={employee.department}
+              name="department"
+              value={editedEmployee.department}
+              onChange={handleInputChange}
+              margin="normal"
+            />
+
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              sx={{ marginTop: 2 }}
+            >
+              Save Changes
+            </Button>
+          </form>
+        ) : (
+          <p>edited.</p>
+        )}
       </Paper>
     </Box>
   );

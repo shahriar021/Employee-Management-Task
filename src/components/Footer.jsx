@@ -11,14 +11,12 @@ import {
 export const Footer = () => {
   return (
     <Box>
-    
       <Container>
         <Row>
           <Column>
             <Heading>About Us</Heading>
             <FooterLink href="">customer satisfaction</FooterLink>
             <FooterLink href="">Vision</FooterLink>
-            
           </Column>
           <Column>
             <Heading>Services</Heading>
@@ -62,4 +60,3 @@ export const Footer = () => {
     </Box>
   );
 };
-

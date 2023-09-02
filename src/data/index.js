@@ -155,8 +155,7 @@ export const employeeSeedData = [
     phone: "01700000258",
     address: "dhaka",
     skills: ["react", "node", "mongo", "python"],
-    image:
-      "download.png",
+    image: "download.png",
     education: [
       "degree",
       ":",

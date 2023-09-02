@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { employeeSeedData } from '../data';
+import { useState } from "react";
+import { employeeSeedData } from "../data";
 
 export function useEmployeeData() {
   const [employees, setEmployees] = useState(employeeSeedData);

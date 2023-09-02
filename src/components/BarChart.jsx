@@ -1,6 +1,6 @@
-import { BarChart as MuiBarChart } from '@mui/x-charts/BarChart';
+import { BarChart as MuiBarChart } from "@mui/x-charts/BarChart";
 
-import { useEmployeeData } from '../hooks';
+import { useEmployeeData } from "../hooks";
 
 export const BarChart = () => {
   const { employees } = useEmployeeData();
@@ -15,9 +15,9 @@ export const BarChart = () => {
     <MuiBarChart
       xAxis={[
         {
-          id: 'barCategories',
+          id: "barCategories",
           data: Array.from(positionSet),
-          scaleType: 'band',
+          scaleType: "band",
         },
       ]}
       series={[

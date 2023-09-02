@@ -14,16 +14,15 @@ export const EmployeeTable = () => {
       action: employee,
     }));
 
-    const handleEmployeeUpdate = (editedEmployee) => {
-     
-      const updatedEmployees = employees.map((employee) => {
-        if (employee.id === editedEmployee.id) {
-          return editedEmployee;
-        }
-        return employee;
-      });
-      setEmployees(updatedEmployees);
-    };
+  const handleEmployeeUpdate = (editedEmployee) => {
+    const updatedEmployees = employees.map((employee) => {
+      if (employee.id === editedEmployee.id) {
+        return editedEmployee;
+      }
+      return employee;
+    });
+    setEmployees(updatedEmployees);
+  };
 
   return (
     <Box>
