@@ -4,12 +4,15 @@ import { Box, Button, Modal } from '@mui/material';
 import { EmployeeDetails } from './EmployeeDetails';
 import { EmployeeEditForm } from './EmployeeEditForm';
 
-export const EmployeeActions = ({ employee }) => {
+export const EmployeeActions = ({ employee,onDelete ,onUpdateEmployee}) => {
   const [showDetails, setShowDetails] = useState(false);
   const [showEditForm, setShowEditForm] = useState(false);
+  
+
+
 
   return (
-    <Box sx={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
+    <Box sx={{ display: "flex", gap: "12px", justifyContent: "center" }}>
       <Button
         variant="outlined"
         color="info"
@@ -23,7 +26,11 @@ export const EmployeeActions = ({ employee }) => {
       >
         Edit
       </Button>
-      <Button variant="contained" color="error">
+      <Button
+        variant="contained"
+        color="error"
+        onClick={() => onDelete(employee.id)}
+      >
         Delete
       </Button>
 
@@ -45,7 +52,10 @@ export const EmployeeActions = ({ employee }) => {
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
-          <EmployeeEditForm employee={employee} />
+          <EmployeeEditForm
+            employee={employee}
+            onSave={onUpdateEmployee}
+          />
         </Modal>
       )}
     </Box>

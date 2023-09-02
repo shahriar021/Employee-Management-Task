@@ -1,20 +1,85 @@
-import { Paper } from '@material-ui/core';
-import { Box,Typography } from '@mui/material';
-import { editableInputTypes } from '@testing-library/user-event/dist/utils';
-import React from 'react';
+import React, { useState } from "react";
+import { Paper, Box, Typography, TextField, Button } from "@mui/material";
 
-export const EmployeeEditForm = ({ employee }) => {
+
+export const EmployeeEditForm = ({ employee,onSave }) => {
+
+  const [editedEmployee, setEditedEmployee] = useState(employee);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setEditedEmployee({
+      ...editedEmployee,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+      editedEmployee.id = employee.id;
+      onSave(editedEmployee);
+    console.log("Edited Employee:", editedEmployee);
+
+
+    
+    
+  };
+
   return (
     <Box
       sx={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
-      <Paper>
-        <div>EmployeeEditForm</div>
-        
+      <Paper elevation={3} sx={{ padding: 2 }}>
+        <Typography variant="h6" gutterBottom>
+          Edit Employee Information
+        </Typography>
+        <form onSubmit={handleSubmit}>
+          <TextField
+            fullWidth
+            label={employee.name}
+            name="name"
+            value={editedEmployee.firstName}
+            onChange={handleInputChange}
+            margin="normal"
+          />
+          <TextField
+            fullWidth
+            label={employee.age}
+            name="age"
+            value={editedEmployee.age}
+            onChange={handleInputChange}
+            margin="normal"
+          />
+          <TextField
+            fullWidth
+            label={employee.position}
+            name="position"
+            value={editedEmployee.positon}
+            onChange={handleInputChange}
+            margin="normal"
+          />
+          <TextField
+            fullWidth
+            label={employee.department}
+            name="department"
+            value={editedEmployee.department}
+            onChange={handleInputChange}
+            margin="normal"
+          />
+          {/* Add more fields for other employee information as needed */}
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            sx={{ marginTop: 2 }}
+          >
+            Save Changes
+          </Button>
+        </form>
       </Paper>
     </Box>
   );

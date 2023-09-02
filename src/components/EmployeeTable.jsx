@@ -1,12 +1,12 @@
-import React from 'react';
-import { Box } from '@mui/material';
-import { DataGrid } from '@mui/x-data-grid';
+import React from "react";
+import { Box, Hidden } from "@mui/material";
+import { DataGrid } from "@mui/x-data-grid";
 
-import { useEmployeeData } from '../hooks';
-import { EmployeeActions } from './EmployeeActions';
+import { useEmployeeData } from "../hooks";
+import { EmployeeActions } from "./EmployeeActions";
 
 export const EmployeeTable = () => {
-  const { employees } = useEmployeeData();
+  const { employees, setEmployees } = useEmployeeData();
 
   const getRowData = () =>
     employees.map((employee) => ({
@@ -14,22 +14,46 @@ export const EmployeeTable = () => {
       action: employee,
     }));
 
+    const handleEmployeeUpdate = (editedEmployee) => {
+     
+      const updatedEmployees = employees.map((employee) => {
+        if (employee.id === editedEmployee.id) {
+          return editedEmployee;
+        }
+        return employee;
+      });
+      setEmployees(updatedEmployees);
+    };
+
   return (
     <Box>
       <DataGrid
         columns={[
-          { field: 'id', headerName: 'ID' },
-          { field: 'name', headerName: 'Name', width: '300' },
-          { field: 'age', headerName: 'Age' },
-          { field: 'position', headerName: 'Position', width: '300' },
-          { field: 'department', headerName: 'Department', width: '250' },
+          { field: "id", headerName: "ID", width: "100", filterable: false },
           {
-            align: 'center',
-            headerAlign: 'center',
-            field: 'action',
-            headerName: 'Action',
-            width: '400',
-            renderCell: (params) => <EmployeeActions employee={params.value} />,
+            field: "name",
+            headerName: "Name",
+            width: "250",
+            filterable: false,
+          },
+          { field: "age", headerName: "Age", width: "250", filterable: false },
+          { field: "position", headerName: "Position", width: "250" },
+          { field: "department", headerName: "Department", width: "250" },
+          // { field: 'phone', headerName: 'Phone', width: '250' },
+          // { field: 'address', headerName: 'Address', width: '250' },
+          {
+            align: "center",
+            headerAlign: "center",
+            field: "action",
+            headerName: "Action",
+            width: "400",
+            filterable: false,
+            renderCell: (params) => (
+              <EmployeeActions
+                employee={params.value}
+                onUpdateEmployee={handleEmployeeUpdate}
+              />
+            ),
           },
         ]}
         rows={getRowData()}
