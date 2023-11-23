@@ -24,6 +24,11 @@ export const EmployeeTable = () => {
     setEmployees(updatedEmployees);
   };
 
+  const handleRemove = (id) => {
+    const updatedEmployees = employees.filter((employee) => employee.id != id);
+    setEmployees(updatedEmployees);
+  };
+
   return (
     <Box>
       <DataGrid
@@ -50,6 +55,8 @@ export const EmployeeTable = () => {
             renderCell: (params) => (
               <EmployeeActions
                 employee={params.value}
+                id={employees.id}
+                onRemove={handleRemove}
                 onUpdateEmployee={handleEmployeeUpdate}
               />
             ),
