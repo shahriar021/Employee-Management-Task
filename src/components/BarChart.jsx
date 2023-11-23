@@ -11,8 +11,13 @@ export const BarChart = () => {
     (position) => positions.filter((p) => p === position).length
   );
 
+  const style = {
+    padding: "3.5%",
+  };
+
   return (
     <MuiBarChart
+      sx={style}
       xAxis={[
         {
           id: "barCategories",

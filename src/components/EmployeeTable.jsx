@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Hidden } from "@mui/material";
+import { Box } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 
 import { useEmployeeData } from "../hooks";
@@ -25,12 +25,17 @@ export const EmployeeTable = () => {
   };
 
   const handleRemove = (id) => {
-    const updatedEmployees = employees.filter((employee) => employee.id != id);
+    const updatedEmployees = employees.filter((employee) => employee.id !== id);
     setEmployees(updatedEmployees);
   };
 
+  const style = {
+    padding: "3.5%",
+    boxShadow: 24,
+  };
+
   return (
-    <Box>
+    <Box sx={style}>
       <DataGrid
         columns={[
           { field: "id", headerName: "ID", width: "100", filterable: false },

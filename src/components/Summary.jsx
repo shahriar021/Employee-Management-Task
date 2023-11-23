@@ -1,26 +1,20 @@
 import { Box } from "@mui/system";
 import { useEmployeeData } from "../hooks";
 
-const style = {
-  width: "100%",
-  margin: "auto",
-  hight: "50%",
-  gap: "10px",
-  left: "0%",
-  display: "flex",
-  alignItems: "left",
-  justifyContent: "left",
-  bgcolor: "black",
-  color: "white",
-};
-
 export const Summary = () => {
   const { employees } = useEmployeeData();
 
-
+  const style = {
+    padding: "3.5%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    bgcolor: "white",
+    boxShadow: "26",
+  };
   return (
     <Box sx={style}>
-      <h3>the total number of employees and the average age.</h3>
+      <h3>Employee Management System</h3>
       <p>Number of Employees: {employees.length}</p>
       <p>
         Average Age:{" "}

@@ -1,24 +1,27 @@
-import React from 'react';
-import './App.css';
+import React from "react";
 
+import Fade from "react-reveal/Fade";
 
-import { BarChart, EmployeeTable } from './components';
-import { Summary } from './components/Summary';
-import { GlobalSearch } from './components/GlobalSearch';
-import { Footer } from './components/Footer';
-import { Image } from './components/Image';
+import "./App.css";
+
+import { BarChart, EmployeeTable } from "./components";
+import { Summary } from "./components/Summary";
+import { GlobalSearch } from "./components/GlobalSearch";
+import { Footer } from "./components/Footer";
+import { Image } from "./components/Image";
 
 function App() {
   return (
     <div className="App">
-      <h1>Employee Managemnet Task</h1>
       <Summary />
-      <Image />
+      <Fade left>
+        <BarChart />
+      </Fade>
+
       <GlobalSearch />
 
       <EmployeeTable />
-      <BarChart />
-
+      <Image />
       <Footer />
     </div>
   );

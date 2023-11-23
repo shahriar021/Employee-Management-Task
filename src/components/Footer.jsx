@@ -30,7 +30,7 @@ export const Footer = () => {
             <FooterLink href="">Dhaka</FooterLink>
             <FooterLink href="">abc@gmail.com</FooterLink>
             <FooterLink href="">999956</FooterLink>
-            <FooterLink href="">Banglades</FooterLink>
+            <FooterLink href="">Bangladesh</FooterLink>
           </Column>
           <Column>
             <Heading>Social Media</Heading>

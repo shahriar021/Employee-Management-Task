@@ -3,14 +3,10 @@ import { Box, Button, Modal } from "@mui/material";
 
 import { EmployeeDetails } from "./EmployeeDetails";
 import { EmployeeEditForm } from "./EmployeeEditForm";
-import { EmployeeDelete } from "./EmployeeDelete";
-import { useEmployeeData } from "../hooks";
 
 export const EmployeeActions = ({ employee, onRemove, onUpdateEmployee }) => {
   const [showDetails, setShowDetails] = useState(false);
   const [showEditForm, setShowEditForm] = useState(false);
-  const [showDelete, setShowDelete] = useState(false);
-  const { employees, setEmployees } = useEmployeeData();
 
   const handleDelete = () => {
     onRemove(employee.id);
@@ -35,17 +31,7 @@ export const EmployeeActions = ({ employee, onRemove, onUpdateEmployee }) => {
       <Button variant="contained" color="error" onClick={() => handleDelete()}>
         Delete
       </Button>
-      {/* 
-      {showDelete && (
-        <Modal
-          open={showDelete}
-          onClose={() => setShowDelete(false)}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <EmployeeDelete employee={employee} />
-        </Modal>
-      )} */}
+      
 
       {showDetails && (
         <Modal
