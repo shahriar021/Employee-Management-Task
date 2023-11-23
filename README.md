@@ -2,6 +2,10 @@
 
 This is a simple React application for managing employee data.
 
+## live demo
+
+[Visit the live website](https://taupe-panda-45e2b6.netlify.app)
+
 ## Getting Started
 
 These instructions will help you set up and run the application locally on your machine.
@@ -18,8 +22,7 @@ Follow these steps to get a local copy of the project and install the necessary 
 
    ```bash
    git clone https://github.com/shahriar021/employee-management-app.git
-
-
+   ```
 
 ### Navigate to the project directory:
 
@@ -43,5 +46,3 @@ Open your web browser and navigate to the provided URL to access the application
 
 You can use the application to manage employee data, editing, and deleting employee records. The application includes a search feature to filter employees based on their names.Also two filters for position and department. There is a bar chart to visualize the distribution of employees based on their positions and also a summary about employees, such as the total number of employees and the average age.
 Image upload and display function is also there.Also there is another view button to show the detail of the row.
-
-
